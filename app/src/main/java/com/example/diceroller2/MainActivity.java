@@ -13,12 +13,13 @@ import androidx.appcompat.widget.Toolbar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
     int count;
-
+    private TextView listview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,9 +96,34 @@ public class MainActivity extends AppCompatActivity {
             tv.setText("Please enter number from 1-6");
         }
 
+    }
 
 
+    public void on_button_click3(View view) {
+
+        listview = (TextView) this.findViewById(R.id.lv);
+
+        ArrayList<String> randlist = new ArrayList<>();
+        randlist.add("1) If you could go anywhere in the world, where would you go?");
+        randlist.add("2) If you were stranded on a desert island, what three things would you want to take with you?");
+        randlist.add("3) If you could only eat one food for the rest of your life, what would that be?");
+        randlist.add("4) If you won a million dollars, what is the first thing you would buy?");
+        randlist.add("5) If you could spend a day with a fictional character, who would it be?");
+        randlist.add("6) If you found a magic lantern and a genie gave you three wishes, what would you wish?");
+
+        Random rand = new Random();
+
+        int numelement = 1;
+
+        for (int i = 0; i < numelement; i++) {
+
+            int randi = rand.nextInt(randlist.size());
+            String rande = randlist.get(randi);
+            listview.setText(rande);
 
 
+        }
     }
 }
+
+
